@@ -12,13 +12,13 @@
       "include": "#instructions"
     },
     {
+      "include": "#types"
+    },
+    {
       "include": "#variables"
     },
     {
       "include": "#strings"
-    },
-    {
-      "include": "#types"
     },
     {
       "include": "#constants"
@@ -184,6 +184,16 @@
     },
     "types": {
       "patterns": [
+        {
+          "comment": "identified pointer types",
+          "name": "entity.name.type.llvm",
+          "match": "%[a-zA-Z\\$\\._][a-zA-Z0-9\\-\\$\\._]*\\*+"
+        },
+        {
+          "comment": "quoted identified pointer types",
+          "name": "entity.name.type.llvm",
+          "match": "%\\\"[^\\\"\\\\]*(?:\\\\.[^\\\"\\\\]*)*\\\"\\*+"
+        },
         {
           "comment": "basic types",
           "name": "entity.name.type.llvm",
