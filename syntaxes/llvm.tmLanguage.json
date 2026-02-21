@@ -59,7 +59,7 @@
           "match": "="
         },
         {
-          "name": "keyword.operator.to.llvm",
+          "name": "keyword.other.llvm",
           "match": "\\b(to)\\b"
         },
         {
