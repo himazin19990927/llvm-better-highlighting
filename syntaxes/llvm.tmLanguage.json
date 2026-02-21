@@ -187,17 +187,17 @@
         {
           "comment": "basic types",
           "name": "entity.name.type.llvm",
-          "match": "\\b(?<![%\\.])(void|ptr)\\b"
+          "match": "\\b(?<![%\\.])(void|ptr)\\**(?!\\w)"
         },
         {
           "comment": "integer type",
           "name": "entity.name.type.integer.llvm",
-          "match": "\\b(?<![%\\.])(i[1-9][0-9]*)\\b"
+          "match": "\\b(?<![%\\.])(i[1-9][0-9]*)\\**(?!\\w)"
         },
         {
           "comment": "floating-point types",
           "name": "entity.name.type.float.llvm",
-          "match": "\\b(?<![%\\.])(half|bfloat|float|double|fp128|x86_fp80|ppc_fp128)"
+          "match": "\\b(?<![%\\.])(half|bfloat|float|double|fp128|x86_fp80|ppc_fp128)\\**(?!\\w)"
         }
       ]
     },
