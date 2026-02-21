@@ -12,13 +12,13 @@
       "include": "#instructions"
     },
     {
+      "include": "#types"
+    },
+    {
       "include": "#variables"
     },
     {
       "include": "#strings"
-    },
-    {
-      "include": "#types"
     },
     {
       "include": "#constants"
@@ -39,12 +39,12 @@
         {
           "comment": "basic keywords",
           "name": "entity.name.function",
-          "match": "\\b(?<![%\\.])(attributes|declare|exact|extractelement|extractvalue|inbounds|insertelement|insertvalue|one|ord|shufflevector|trunc|type|unwind)\\b"
+          "match": "\\b(?<![%\\.])(attributes|declare|exact|extractelement|extractvalue|inbounds|insertelement|insertvalue|one|ord|shufflevector|trunc|unwind)\\b"
         },
         {
           "comment": "global variable keywords",
           "name": "keyword.other.llvm",
-          "match": "\\b(?<![%\\.])(constant|global)\\b"
+          "match": "\\b(?<![%\\.])(constant|global|type)\\b"
         },
         {
           "name": "keyword.type.function.llvm",
@@ -59,7 +59,7 @@
           "match": "="
         },
         {
-          "name": "keyword.operator.to.llvm",
+          "name": "keyword.other.llvm",
           "match": "\\b(to)\\b"
         },
         {
@@ -185,19 +185,29 @@
     "types": {
       "patterns": [
         {
+          "comment": "identified pointer types",
+          "name": "entity.name.type.llvm",
+          "match": "%[a-zA-Z\\$\\._][a-zA-Z0-9\\-\\$\\._]*\\*+"
+        },
+        {
+          "comment": "quoted identified pointer types",
+          "name": "entity.name.type.llvm",
+          "match": "%\\\"[^\\\"\\\\]*(?:\\\\.[^\\\"\\\\]*)*\\\"\\*+"
+        },
+        {
           "comment": "basic types",
           "name": "entity.name.type.llvm",
-          "match": "\\b(?<![%\\.])(void|ptr)\\b"
+          "match": "\\b(?<![%\\.])(void|ptr)\\**(?!\\w)"
         },
         {
           "comment": "integer type",
           "name": "entity.name.type.integer.llvm",
-          "match": "\\b(?<![%\\.])(i[1-9][0-9]*)\\b"
+          "match": "\\b(?<![%\\.])(i[1-9][0-9]*)\\**(?!\\w)"
         },
         {
           "comment": "floating-point types",
           "name": "entity.name.type.float.llvm",
-          "match": "\\b(?<![%\\.])(half|bfloat|float|double|fp128|x86_fp80|ppc_fp128)"
+          "match": "\\b(?<![%\\.])(half|bfloat|float|double|fp128|x86_fp80|ppc_fp128)\\**(?!\\w)"
         }
       ]
     },
